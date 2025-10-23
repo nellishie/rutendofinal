@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
+import uzLogo from "@assets/image_1761229326818.png";
 
 export function EducationSection() {
   const ref = useRef(null);
@@ -70,9 +71,13 @@ export function EducationSection() {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="p-6 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 dark:bg-primary/10"
+                className="p-4 rounded-2xl bg-white dark:bg-card shadow-lg"
               >
-                <GraduationCap className="w-12 h-12 md:w-16 md:h-16 text-white dark:text-primary" />
+                <img 
+                  src={uzLogo} 
+                  alt="University of Zimbabwe" 
+                  className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                />
               </motion.div>
             </div>
 
