@@ -54,8 +54,34 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 lg:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="testimonials" className="py-16 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+      {/* Gradient blobs - light mode only */}
+      <motion.div
+        className="absolute top-0 left-20 w-80 h-80 bg-gradient-to-br from-yellow-300 to-amber-300 rounded-full blur-3xl opacity-15 dark:opacity-0"
+        animate={{
+          scale: [1, 1.3, 1],
+          y: [0, 60, 0],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 right-20 w-72 h-72 bg-gradient-to-br from-pink-300 to-rose-300 rounded-full blur-3xl opacity-15 dark:opacity-0"
+        animate={{
+          scale: [1, 1.4, 1],
+          x: [0, -50, 0],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +89,7 @@ export function TestimonialsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 dark:from-primary dark:via-primary dark:to-chart-2 bg-clip-text text-transparent">
             Recommendations
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -92,7 +118,14 @@ export function TestimonialsSection() {
 
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <motion.div
+                    key={i}
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                  >
+                    <Star className="w-5 h-5 fill-amber-400 text-amber-400 dark:fill-primary dark:text-primary" />
+                  </motion.div>
                 ))}
               </div>
 

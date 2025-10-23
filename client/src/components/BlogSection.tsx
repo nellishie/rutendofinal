@@ -12,6 +12,9 @@ const blogPosts = [
     date: "October 2025",
     category: "AMR Awareness",
     readTime: "5 min read",
+    color: "from-red-500 to-orange-500",
+    badgeBg: "bg-red-100 dark:bg-primary/10",
+    badgeText: "text-red-700 dark:text-primary",
   },
   {
     title: "Breaking the Stigma: Mental Health in Pharmacy Practice",
@@ -20,6 +23,9 @@ const blogPosts = [
     date: "September 2025",
     category: "Mental Health",
     readTime: "6 min read",
+    color: "from-green-500 to-emerald-500",
+    badgeBg: "bg-green-100 dark:bg-primary/10",
+    badgeText: "text-green-700 dark:text-primary",
   },
   {
     title: "Public Health Leadership: Lessons from IPSF",
@@ -28,6 +34,9 @@ const blogPosts = [
     date: "August 2025",
     category: "Leadership",
     readTime: "4 min read",
+    color: "from-blue-500 to-purple-500",
+    badgeBg: "bg-blue-100 dark:bg-primary/10",
+    badgeText: "text-blue-700 dark:text-primary",
   },
 ];
 
@@ -55,8 +64,22 @@ export function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-16 md:py-24 lg:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="blog" className="py-16 md:py-24 lg:py-32 bg-card relative overflow-hidden">
+      {/* Gradient animations - light mode only */}
+      <motion.div
+        className="absolute top-20 left-1/3 w-72 h-72 bg-gradient-to-br from-green-300 to-emerald-300 rounded-full blur-3xl opacity-20 dark:opacity-0"
+        animate={{
+          scale: [1, 1.5, 1],
+          x: [0, 60, 0],
+        }}
+        transition={{
+          duration: 16,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +87,7 @@ export function BlogSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 bg-gradient-to-r from-green-600 via-teal-600 to-cyan-600 dark:from-foreground dark:via-foreground dark:to-foreground bg-clip-text text-transparent">
             Insights & Publications
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -90,10 +113,10 @@ export function BlogSection() {
             >
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <BookOpen className="w-5 h-5 text-primary" />
+                  <div className={`p-2 rounded-lg bg-gradient-to-br ${post.color} dark:bg-primary/10`}>
+                    <BookOpen className="w-5 h-5 text-white dark:text-primary" />
                   </div>
-                  <span className="text-sm font-medium text-primary">{post.category}</span>
+                  <span className={`text-sm font-medium px-3 py-1 rounded-full ${post.badgeBg} ${post.badgeText}`}>{post.category}</span>
                 </div>
 
                 <h3
