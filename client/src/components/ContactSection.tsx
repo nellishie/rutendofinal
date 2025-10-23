@@ -172,6 +172,7 @@ export function ContactSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-12"
+                data-testid="message-success"
               >
                 <CheckCircle className="w-16 h-16 text-chart-3 mb-4" />
                 <h4 className="text-xl font-semibold mb-2">Message Sent!</h4>

@@ -11,11 +11,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const message = await storage.createContactMessage(validatedData);
       
-      try {
-        await sendContactEmail(validatedData);
-      } catch (emailError) {
-        console.error("Email sending failed:", emailError);
-      }
+      await sendContactEmail(validatedData);
       
       res.json({
         success: true,
@@ -24,7 +20,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     } catch (error) {
       console.error("Contact form error:", error);
-      res.status(400).json({
+      res.status(500).json({
         success: false,
         message: error instanceof Error ? error.message : "Failed to send message",
       });

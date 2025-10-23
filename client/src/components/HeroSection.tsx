@@ -109,7 +109,7 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-12"
             >
-              {socialLinks.map((link, index) => (
+              {socialLinks.map((link) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
@@ -119,7 +119,7 @@ export function HeroSection() {
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.2 }}
                   className={`${link.color} text-white p-3 rounded-full shadow-lg transition-all duration-300`}
-                  data-testid={`link-social-${link.name.toLowerCase()}`}
+                  data-testid={`button-social-${link.name.toLowerCase()}`}
                   aria-label={link.name}
                 >
                   <link.icon className="w-6 h-6" />
