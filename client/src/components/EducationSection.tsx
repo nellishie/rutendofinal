@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, GraduationCap, Award } from "lucide-react";
 import uzLogo from "@assets/image_1761229326818.png";
 
 export function EducationSection() {
@@ -129,6 +129,75 @@ export function EducationSection() {
                 pharmacology, and public health, preparing for a career dedicated to improving
                 healthcare outcomes and advancing pharmaceutical sciences.
               </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* High School Education */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-8 bg-background rounded-2xl shadow-xl p-8 md:p-12 border-2 border-gradient-to-r from-blue-400 to-indigo-400 dark:border-primary/20 relative overflow-hidden"
+          data-testid="card-high-school"
+        >
+          {/* Animated gradient border effect - light mode only */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-200 via-indigo-200 to-purple-200 dark:from-transparent dark:via-transparent dark:to-transparent opacity-10 dark:opacity-0" />
+          
+          <div className="relative z-10">
+            <div className="flex items-center justify-center mb-6">
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                }}
+                className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 dark:bg-primary/10"
+              >
+                <Award className="w-10 h-10 md:w-12 md:h-12 text-white dark:text-primary" />
+              </motion.div>
+            </div>
+
+            <h3 className="text-xl md:text-2xl font-bold text-center mb-2" data-testid="text-high-school-level">
+              Advanced Level (A-Level)
+            </h3>
+
+            <p className="text-lg md:text-xl text-center text-primary font-semibold mb-2" data-testid="text-high-school">
+              Mutoko High School
+            </p>
+
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <div className="px-4 py-2 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 dark:bg-primary/20">
+                <p className="text-sm md:text-base font-bold text-white dark:text-primary" data-testid="text-points">
+                  15 Points
+                </p>
+              </div>
+              <div className="px-4 py-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-500 dark:bg-primary/20">
+                <p className="text-sm md:text-base font-bold text-white dark:text-primary" data-testid="text-grade">
+                  A+ Student
+                </p>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:bg-primary/5 border-2 border-blue-200 dark:border-primary/10">
+              <p className="text-base md:text-lg text-center font-semibold mb-2 text-foreground">
+                Major Subjects
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-blue-300 dark:border-primary/20">
+                  <p className="text-sm md:text-base font-medium">Mathematics</p>
+                </div>
+                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-indigo-300 dark:border-primary/20">
+                  <p className="text-sm md:text-base font-medium">Physics</p>
+                </div>
+                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-purple-300 dark:border-primary/20">
+                  <p className="text-sm md:text-base font-medium">Chemistry</p>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
