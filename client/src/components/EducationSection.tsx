@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, GraduationCap, Award } from "lucide-react";
+import { FaCalendarAlt, FaMapMarkerAlt, FaGraduationCap, FaTrophy, FaFlask, FaCalculator, FaAtom } from "react-icons/fa";
 import uzLogo from "@assets/image_1761229326818.png";
 import pharmacyBg from "@assets/image_1761231725576.png";
 
@@ -75,8 +75,8 @@ export function EducationSection() {
                 whileHover={{ scale: 1.03 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-transparent dark:from-transparent" />
-                <div className="relative z-10 p-3 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 dark:bg-primary/10">
-                  <Calendar className="w-6 h-6 text-white dark:text-primary" />
+                <div className="relative z-10 p-3 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 dark:bg-primary/10 shadow-lg">
+                  <FaCalendarAlt className="w-6 h-6 text-white dark:text-primary" />
                 </div>
                 <div className="relative z-10">
                   <p className="text-sm text-muted-foreground font-medium">Duration</p>
@@ -91,8 +91,8 @@ export function EducationSection() {
                 whileHover={{ scale: 1.03 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 to-transparent dark:from-transparent" />
-                <div className="relative z-10 p-3 rounded-lg bg-gradient-to-br from-rose-400 to-pink-500 dark:bg-primary/10">
-                  <MapPin className="w-6 h-6 text-white dark:text-primary" />
+                <div className="relative z-10 p-3 rounded-full bg-gradient-to-br from-rose-400 to-pink-500 dark:bg-primary/10 shadow-lg">
+                  <FaMapMarkerAlt className="w-6 h-6 text-white dark:text-primary" />
                 </div>
                 <div className="relative z-10">
                   <p className="text-sm text-muted-foreground font-medium">Location</p>
@@ -134,9 +134,9 @@ export function EducationSection() {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 dark:bg-primary/10"
+                className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 dark:bg-primary/10 shadow-lg"
               >
-                <Award className="w-10 h-10 md:w-12 md:h-12 text-white dark:text-primary" />
+                <FaTrophy className="w-10 h-10 md:w-12 md:h-12 text-white dark:text-primary" />
               </motion.div>
             </div>
 
@@ -166,13 +166,16 @@ export function EducationSection() {
                 Major Subjects
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-blue-300 dark:border-primary/20">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-blue-300 dark:border-primary/20">
+                  <FaCalculator className="w-4 h-4 text-blue-500" />
                   <p className="text-sm md:text-base font-medium">Mathematics</p>
                 </div>
-                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-indigo-300 dark:border-primary/20">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-indigo-300 dark:border-primary/20">
+                  <FaAtom className="w-4 h-4 text-indigo-500" />
                   <p className="text-sm md:text-base font-medium">Physics</p>
                 </div>
-                <div className="px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-purple-300 dark:border-primary/20">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-card border-2 border-purple-300 dark:border-primary/20">
+                  <FaFlask className="w-4 h-4 text-purple-500" />
                   <p className="text-sm md:text-base font-medium">Chemistry</p>
                 </div>
               </div>
