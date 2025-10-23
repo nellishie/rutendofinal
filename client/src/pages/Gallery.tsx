@@ -15,7 +15,7 @@ export default function Gallery() {
   const [newImage, setNewImage] = useState({ title: "", description: "", imageUrl: "" });
   const { toast } = useToast();
 
-  const { data: images, isLoading } = useQuery<{ data: GalleryImage[] }>({
+  const { data: images, isLoading, isError } = useQuery<{ data: GalleryImage[] }>({
     queryKey: ["/api/gallery"],
   });
 
@@ -120,6 +120,26 @@ export default function Gallery() {
               />
             ))}
           </div>
+        ) : isError ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center py-20"
+          >
+            <FaImages className="w-24 h-24 mx-auto mb-6 text-destructive/50" />
+            <h2 className="text-2xl font-semibold mb-2">Failed to Load Gallery</h2>
+            <p className="text-muted-foreground mb-6">
+              There was an error loading your gallery images. Please check your connection and try again.
+            </p>
+            <Button
+              onClick={() => queryClient.invalidateQueries({ queryKey: ["/api/gallery"] })}
+              variant="outline"
+              className="gap-2"
+              data-testid="button-retry"
+            >
+              Try Again
+            </Button>
+          </motion.div>
         ) : images?.data && images.data.length > 0 ? (
           <motion.div
             className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6"
