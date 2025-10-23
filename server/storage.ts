@@ -1,4 +1,4 @@
-import { type User, type InsertUser, type ContactMessage, type InsertContactMessage } from "@shared/schema";
+import { type User, type InsertUser, type ContactMessage, type InsertContactMessage, type GalleryImage, type InsertGalleryImage } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -7,15 +7,20 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getAllContactMessages(): Promise<ContactMessage[]>;
+  getAllGalleryImages(): Promise<GalleryImage[]>;
+  createGalleryImage(image: InsertGalleryImage): Promise<GalleryImage>;
+  deleteGalleryImage(id: string): Promise<void>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private contactMessages: Map<string, ContactMessage>;
+  private galleryImages: Map<string, GalleryImage>;
 
   constructor() {
     this.users = new Map();
     this.contactMessages = new Map();
+    this.galleryImages = new Map();
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -50,6 +55,27 @@ export class MemStorage implements IStorage {
     return Array.from(this.contactMessages.values()).sort(
       (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
     );
+  }
+
+  async getAllGalleryImages(): Promise<GalleryImage[]> {
+    return Array.from(this.galleryImages.values()).sort(
+      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+    );
+  }
+
+  async createGalleryImage(insertImage: InsertGalleryImage): Promise<GalleryImage> {
+    const id = randomUUID();
+    const image: GalleryImage = {
+      ...insertImage,
+      id,
+      createdAt: new Date(),
+    };
+    this.galleryImages.set(id, image);
+    return image;
+  }
+
+  async deleteGalleryImage(id: string): Promise<void> {
+    this.galleryImages.delete(id);
   }
 }
 
