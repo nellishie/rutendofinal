@@ -16,8 +16,8 @@ export async function sendContactEmail(message: InsertContactMessage): Promise<v
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_USER || "michellechingamuka@gmail.com",
-    to: "michellechingamuka@gmail.com",
+    from: process.env.EMAIL_USER || "rutendochingamuka4@gmail.com",
+    to: "rutendochingamuka4@gmail.com",
     replyTo: message.email,
     subject: `Portfolio Contact: Message from ${message.name}`,
     html: `

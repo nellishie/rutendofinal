@@ -8,7 +8,7 @@ export function HeroSection() {
   const socialLinks = [
     {
       name: "Email",
-      href: "mailto:michellechingamuka@gmail.com",
+      href: "mailto:rutendochingamuka4@gmail.com",
       icon: Mail,
       color: "bg-primary hover:bg-primary/90",
     },

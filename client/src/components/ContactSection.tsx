@@ -65,8 +65,8 @@ export function ContactSection() {
   const contactInfo = [
     {
       name: "Email",
-      value: "michellechingamuka@gmail.com",
-      href: "mailto:michellechingamuka@gmail.com",
+      value: "rutendochingamuka4@gmail.com",
+      href: "mailto:rutendochingamuka4@gmail.com",
       icon: Mail,
     },
     {
