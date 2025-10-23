@@ -52,12 +52,12 @@ export function HeroSection() {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="rounded-full"
+                className="rounded-3xl"
               >
                 <img
                   src={profileImage}
                   alt="Rutendo Chingamuka"
-                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover shadow-xl border-4 border-background"
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl object-cover shadow-xl border-4 border-background"
                   data-testid="img-profile"
                 />
               </motion.div>
