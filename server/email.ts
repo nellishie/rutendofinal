@@ -2,11 +2,16 @@ import nodemailer from "nodemailer";
 import type { InsertContactMessage } from "@shared/schema";
 
 export async function sendContactEmail(message: InsertContactMessage): Promise<void> {
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+    console.warn("Email credentials not configured. Message saved but not sent.");
+    return;
+  }
+
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER || "michellechingamuka@gmail.com",
-      pass: process.env.EMAIL_PASSWORD || "",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
@@ -56,8 +61,13 @@ This message was sent from your portfolio website contact form.
 
   try {
     await transporter.sendMail(mailOptions);
+    console.log(`Email successfully sent for contact from ${message.name} (${message.email})`);
   } catch (error) {
     console.error("Error sending email:", error);
-    throw new Error("Failed to send email. Please try again later.");
+    if (error instanceof Error && error.message.includes('Invalid login')) {
+      console.error("Gmail authentication failed. Please ensure EMAIL_PASSWORD is a Gmail App Password, not your regular Gmail password.");
+      console.error("To create an App Password: Google Account > Security > 2-Step Verification > App passwords");
+    }
+    throw new Error("Failed to send email. Please verify your email configuration.");
   }
 }

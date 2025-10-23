@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, GraduationCap, Briefcase } from "lucide-react";
+import { MapPin, GraduationCap, Briefcase, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
   const ref = useRef(null);
@@ -55,6 +56,28 @@ export function AboutSection() {
               organizations, I strive to create meaningful impact in public health and empower
               communities with knowledge and resources for better health outcomes.
             </p>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center mt-8 mb-12"
+          >
+            <Button
+              size="lg"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/api/download-cv';
+                link.download = 'Rutendo_Chingamuka_CV.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+              className="gap-2"
+              data-testid="button-download-cv"
+            >
+              <Download className="w-5 h-5" />
+              Download CV
+            </Button>
           </motion.div>
 
           <motion.div
