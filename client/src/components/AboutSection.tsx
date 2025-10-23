@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, GraduationCap, Briefcase, Download } from "lucide-react";
+import { FaMapMarkerAlt, FaGraduationCap, FaBriefcase, FaDownload } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 export function AboutSection() {
@@ -113,7 +113,7 @@ export function AboutSection() {
               className="gap-2"
               data-testid="button-download-cv"
             >
-              <Download className="w-5 h-5" />
+              <FaDownload className="w-5 h-5" />
               Download CV
             </Button>
           </motion.div>
@@ -128,7 +128,7 @@ export function AboutSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent dark:from-transparent" />
               <div className="relative z-10 p-3 rounded-lg bg-gradient-to-br from-emerald-400 to-teal-500 dark:bg-primary/10">
-                <MapPin className="w-6 h-6 text-white dark:text-primary" />
+                <FaMapMarkerAlt className="w-6 h-6 text-white dark:text-primary" />
               </div>
               <div className="relative z-10">
                 <h3 className="font-semibold mb-1">Location</h3>
@@ -142,7 +142,7 @@ export function AboutSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent dark:from-transparent" />
               <div className="relative z-10 p-3 rounded-lg bg-gradient-to-br from-blue-400 to-indigo-500 dark:bg-primary/10">
-                <GraduationCap className="w-6 h-6 text-white dark:text-primary" />
+                <FaGraduationCap className="w-6 h-6 text-white dark:text-primary" />
               </div>
               <div className="relative z-10">
                 <h3 className="font-semibold mb-1">Education</h3>
@@ -160,7 +160,7 @@ export function AboutSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent dark:from-transparent" />
               <div className="relative z-10 p-3 rounded-lg bg-gradient-to-br from-purple-400 to-pink-500 dark:bg-primary/10">
-                <Briefcase className="w-6 h-6 text-white dark:text-primary" />
+                <FaBriefcase className="w-6 h-6 text-white dark:text-primary" />
               </div>
               <div className="relative z-10">
                 <h3 className="font-semibold mb-1">Current Focus</h3>

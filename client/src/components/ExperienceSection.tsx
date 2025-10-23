@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar } from "lucide-react";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const experiences = [
   {
@@ -143,7 +143,7 @@ export function ExperienceSection() {
               <div className="relative z-10">
                 <div className="flex items-start gap-3 mb-4">
                   <div className={`p-2 rounded-lg bg-gradient-to-br ${exp.color} dark:bg-primary/10`}>
-                    <Calendar className="w-5 h-5 text-white dark:text-primary" />
+                    <FaCalendarAlt className="w-5 h-5 text-white dark:text-primary" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-muted-foreground" data-testid={`text-period-${index}`}>

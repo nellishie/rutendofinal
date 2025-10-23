@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, ArrowRight, BookOpen } from "lucide-react";
+import { FaCalendarAlt, FaArrowRight, FaBookOpen } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 const blogPosts = [
@@ -114,7 +114,7 @@ export function BlogSection() {
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-2 mb-4">
                   <div className={`p-2 rounded-lg bg-gradient-to-br ${post.color} dark:bg-primary/10`}>
-                    <BookOpen className="w-5 h-5 text-white dark:text-primary" />
+                    <FaBookOpen className="w-5 h-5 text-white dark:text-primary" />
                   </div>
                   <span className={`text-sm font-medium px-3 py-1 rounded-full ${post.badgeBg} ${post.badgeText}`}>{post.category}</span>
                 </div>
@@ -133,7 +133,7 @@ export function BlogSection() {
                 <div className="flex items-center justify-between pt-4 border-t">
                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
+                      <FaCalendarAlt className="w-4 h-4" />
                       {post.date}
                     </span>
                     <span>{post.readTime}</span>
@@ -145,7 +145,7 @@ export function BlogSection() {
                     data-testid={`button-read-more-${index}`}
                   >
                     Read
-                    <ArrowRight className="w-4 h-4 ml-1" />
+                    <FaArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
               </div>

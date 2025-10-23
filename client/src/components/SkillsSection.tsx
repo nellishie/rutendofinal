@@ -2,28 +2,28 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import {
-  MessageSquare,
-  Users,
-  BookOpen,
-  Lightbulb,
-  Zap,
-  Calendar,
-  UserCheck,
-  Mic,
-  Monitor,
-} from "lucide-react";
+  FaComments,
+  FaUsers,
+  FaBook,
+  FaLightbulb,
+  FaBolt,
+  FaCalendarAlt,
+  FaUserCheck,
+  FaMicrophone,
+  FaDesktop,
+} from "react-icons/fa";
 import { Badge } from "@/components/ui/badge";
 
 const skills = [
-  { name: "Communication", icon: MessageSquare, color: "from-blue-500 to-cyan-500" },
-  { name: "Leadership", icon: Users, color: "from-purple-500 to-pink-500" },
-  { name: "Teaching", icon: BookOpen, color: "from-emerald-500 to-teal-500" },
-  { name: "Problem Solving", icon: Lightbulb, color: "from-amber-500 to-orange-500" },
-  { name: "Proactivity", icon: Zap, color: "from-rose-500 to-pink-500" },
-  { name: "Organization Skills", icon: Calendar, color: "from-indigo-500 to-violet-500" },
-  { name: "Teamwork & Collaboration", icon: UserCheck, color: "from-green-500 to-emerald-500" },
-  { name: "Public Speaking", icon: Mic, color: "from-fuchsia-500 to-pink-500" },
-  { name: "Digital Literacy", icon: Monitor, color: "from-sky-500 to-blue-500" },
+  { name: "Communication", icon: FaComments, color: "from-blue-500 to-cyan-500" },
+  { name: "Leadership", icon: FaUsers, color: "from-purple-500 to-pink-500" },
+  { name: "Teaching", icon: FaBook, color: "from-emerald-500 to-teal-500" },
+  { name: "Problem Solving", icon: FaLightbulb, color: "from-amber-500 to-orange-500" },
+  { name: "Proactivity", icon: FaBolt, color: "from-rose-500 to-pink-500" },
+  { name: "Organization Skills", icon: FaCalendarAlt, color: "from-indigo-500 to-violet-500" },
+  { name: "Teamwork & Collaboration", icon: FaUserCheck, color: "from-green-500 to-emerald-500" },
+  { name: "Public Speaking", icon: FaMicrophone, color: "from-fuchsia-500 to-pink-500" },
+  { name: "Digital Literacy", icon: FaDesktop, color: "from-sky-500 to-blue-500" },
 ];
 
 export function SkillsSection() {

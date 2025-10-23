@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Quote, Star } from "lucide-react";
+import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
@@ -113,7 +113,7 @@ export function TestimonialsSection() {
               data-testid={`card-testimonial-${index}`}
             >
               <div className="absolute top-4 right-4 opacity-10">
-                <Quote className="w-16 h-16 text-primary" />
+                <FaQuoteLeft className="w-16 h-16 text-primary" />
               </div>
 
               <div className="flex gap-1 mb-4">
@@ -124,7 +124,7 @@ export function TestimonialsSection() {
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: i * 0.1, duration: 0.5 }}
                   >
-                    <Star className="w-5 h-5 fill-amber-400 text-amber-400 dark:fill-primary dark:text-primary" />
+                    <FaStar className="w-5 h-5 fill-amber-400 text-amber-400 dark:fill-primary dark:text-primary" />
                   </motion.div>
                 ))}
               </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { FaEnvelope, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,7 +67,7 @@ export function ContactSection() {
       name: "Email",
       value: "rutendochingamuka4@gmail.com",
       href: "mailto:rutendochingamuka4@gmail.com",
-      icon: Mail,
+      icon: FaEnvelope,
     },
     {
       name: "WhatsApp",
@@ -174,7 +174,7 @@ export function ContactSection() {
                 className="flex flex-col items-center justify-center py-12"
                 data-testid="message-success"
               >
-                <CheckCircle className="w-16 h-16 text-chart-3 mb-4" />
+                <FaCheckCircle className="w-16 h-16 text-chart-3 mb-4" />
                 <h4 className="text-xl font-semibold mb-2">Message Sent!</h4>
                 <p className="text-muted-foreground text-center">
                   Thank you for reaching out. I'll get back to you soon.
@@ -255,13 +255,13 @@ export function ContactSection() {
                           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                           className="mr-2"
                         >
-                          <AlertCircle className="w-5 h-5" />
+                          <FaExclamationCircle className="w-5 h-5" />
                         </motion.div>
                         Sending...
                       </>
                     ) : (
                       <>
-                        <Send className="w-5 h-5 mr-2" />
+                        <FaPaperPlane className="w-5 h-5 mr-2" />
                         Send Message
                       </>
                     )}
