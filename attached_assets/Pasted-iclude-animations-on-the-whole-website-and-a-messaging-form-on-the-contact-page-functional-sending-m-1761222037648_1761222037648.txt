@@ -1,0 +1,125 @@
+iclude animations on the whole website and a messaging form on the contact page functional sending messages to the provided emails: 🌐 Portfolio Website Project Outline – Rutendo Chingamuka
+1️⃣ Project Overview
+
+Goal:
+Create a professional online portfolio showcasing your background, leadership roles, skills, and pharmacy experience.
+
+Tech Stack:
+
+HTML (structure)
+
+CSS (styling and responsiveness)
+
+JavaScript (interactive icons & effects)
+
+Theme:
+Modern, elegant, and professional — soft colors (white, light gray, deep blue or teal accents).
+
+2️⃣ Folder Structure
+rutendo-portfolio/
+│
+├── index.html               → main webpage
+├── style.css                → custom styling
+├── script.js                → interactivity (social icons, scroll, etc.)
+├── images/
+│   └── profile.jpg          → your photo (upload this)
+└── assets/
+    └── icons/               → Gmail, WhatsApp, LinkedIn icons (SVG or PNG)
+
+3️⃣ Website Sections
+🏠 Home Section
+
+Your profile photo
+
+Name and title:
+“Rutendo Chingamuka — Pharmacy Student | Mental Health Advocate | AMR Enthusiast”
+
+Short professional summary
+
+Functional icons:
+
+📧 Gmail → opens default mail app
+
+💬 WhatsApp → opens chat in browser
+
+🔗 LinkedIn → opens your LinkedIn profile
+
+A smooth scroll button → “Learn More”
+
+👩‍⚕️ About Section
+
+Expanded Professional Summary
+
+Personal details (location, current roles, education)
+
+Downloadable CV option (optional add-on)
+
+💼 Experience Section
+
+Cards showing your experience:
+
+IPSF – Public Health Committee (Oct 2025 – Present)
+
+IPSF AfRO – Regional Relations Subcommittee (Oct 2025 – Present)
+
+ZPSA – Public Relations Officer (Aug 2025 – Present)
+
+Nexmed Pharmacy – Student Intern (Jul 2025 – Present)
+
+The Stillwaters Mental Health Foundation – Strategy Board Director (Mar 2025 – Present)
+
+13th IPSF AfPS – Subcommittee Member (May–Aug 2025)
+
+🎓 Education Section
+
+University of Zimbabwe
+Bachelor of Pharmacy (BPharm)
+(Aug 2024 – Aug 2028)
+
+🧠 Skills Section
+
+Two-column layout listing:
+
+Communication
+
+Leadership
+
+Teaching
+
+Problem solving
+
+Proactivity
+
+Organization skills
+
+Teamwork & Collaboration
+
+Public Speaking
+
+Digital Literacy (MS Office, DispenseWare)
+
+📬 Contact Section
+
+Functional links:
+
+Gmail: mailto:michellechingamuka@gmail.com
+
+WhatsApp: https://wa.me/263780007325
+
+LinkedIn:
+https://www.linkedin.com/in/rutendo-chingamuka-583165357
+
+4️⃣ Optional Add-Ons (for later)
+
+Dark/Light mode toggle
+
+Scroll animations (using AOS or JS)
+
+Download Resume button
+
+Responsive mobile version
+
+5️⃣ Next Step
+
+I can now generate:
+✅ The full Replit-ready code (HTML, CSS, JS) — you just copy it in and upload your profile photo.
