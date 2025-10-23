@@ -3,40 +3,22 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, MapPin, GraduationCap, Award } from "lucide-react";
 import uzLogo from "@assets/image_1761229326818.png";
+import pharmacyBg from "@assets/image_1761231725576.png";
 
 export function EducationSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:bg-primary/5 relative overflow-hidden">
-      {/* Floating colored circles - light mode only */}
-      <motion.div
-        className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full blur-3xl opacity-20 dark:opacity-0"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, 80, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+    <section id="education" className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${pharmacyBg})` }}
       />
-      <motion.div
-        className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-pink-300 to-rose-400 rounded-full blur-3xl opacity-20 dark:opacity-0"
-        animate={{
-          x: [0, -80, 0],
-          y: [0, -60, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
       
       <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.h2
@@ -44,7 +26,7 @@ export function EducationSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 text-center bg-gradient-to-r from-orange-600 via-rose-600 to-pink-600 dark:from-primary dark:via-primary dark:to-chart-2 bg-clip-text text-transparent"
+          className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-12 text-center text-white drop-shadow-lg"
         >
           Education
         </motion.h2>
@@ -54,11 +36,9 @@ export function EducationSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8 }}
-          className="bg-background rounded-2xl shadow-xl p-8 md:p-12 border-2 border-gradient-to-r from-orange-400 to-rose-400 dark:border-primary/20 relative overflow-hidden"
+          className="bg-white/95 dark:bg-card/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-white/50 dark:border-primary/20 relative overflow-hidden"
           data-testid="card-education"
         >
-          {/* Animated gradient border effect - light mode only */}
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-200 via-rose-200 to-pink-200 dark:from-transparent dark:via-transparent dark:to-transparent opacity-10 dark:opacity-0" />
           
           <div className="relative z-10">
             <div className="flex items-center justify-center mb-8">
@@ -139,11 +119,9 @@ export function EducationSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-8 bg-background rounded-2xl shadow-xl p-8 md:p-12 border-2 border-gradient-to-r from-blue-400 to-indigo-400 dark:border-primary/20 relative overflow-hidden"
+          className="mt-8 bg-white/95 dark:bg-card/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-12 border border-white/50 dark:border-primary/20 relative overflow-hidden"
           data-testid="card-high-school"
         >
-          {/* Animated gradient border effect - light mode only */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-200 via-indigo-200 to-purple-200 dark:from-transparent dark:via-transparent dark:to-transparent opacity-10 dark:opacity-0" />
           
           <div className="relative z-10">
             <div className="flex items-center justify-center mb-6">
