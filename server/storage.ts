@@ -67,6 +67,7 @@ export class MemStorage implements IStorage {
     const id = randomUUID();
     const image: GalleryImage = {
       ...insertImage,
+      description: insertImage.description ?? null,
       id,
       createdAt: new Date(),
     };

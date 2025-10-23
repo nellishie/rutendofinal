@@ -21,11 +21,7 @@ export default function Gallery() {
 
   const addImageMutation = useMutation({
     mutationFn: async (imageData: typeof newImage) => {
-      return await apiRequest("/api/gallery", {
-        method: "POST",
-        body: JSON.stringify(imageData),
-        headers: { "Content-Type": "application/json" },
-      });
+      return await apiRequest("POST", "/api/gallery", imageData);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/gallery"] });
@@ -47,9 +43,7 @@ export default function Gallery() {
 
   const deleteImageMutation = useMutation({
     mutationFn: async (id: string) => {
-      return await apiRequest(`/api/gallery/${id}`, {
-        method: "DELETE",
-      });
+      return await apiRequest("DELETE", `/api/gallery/${id}`);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/gallery"] });
