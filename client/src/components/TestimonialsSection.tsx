@@ -5,24 +5,24 @@ import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Dr. Sarah Moyo",
-    role: "Clinical Pharmacy Supervisor",
-    organization: "Nexmed Pharmacy",
+    name: "Pharmacist Tanatswa",
+    role: "Pharmacist",
+    organization: "NexMed Pharmacy",
     content:
       "Rutendo has demonstrated exceptional dedication and professionalism during her internship. Her commitment to patient care and eagerness to learn make her stand out among her peers.",
     rating: 5,
   },
   {
-    name: "Prof. Tendai Mutasa",
-    role: "Lecturer in Pharmaceutical Sciences",
+    name: "Prof. L. Gadaga",
+    role: "Chairperson of Pharmacy Department",
     organization: "University of Zimbabwe",
     content:
       "As a student, Rutendo consistently shows remarkable understanding of complex pharmaceutical concepts. Her leadership in student organizations demonstrates her potential to make significant contributions to the field.",
     rating: 5,
   },
   {
-    name: "Michael Ncube",
-    role: "Executive Director",
+    name: "Stawelyn Musona",
+    role: "Zimbabwe Coordinator",
     organization: "The Stillwaters Mental Health Foundation",
     content:
       "Rutendo's strategic insights and passion for mental health advocacy have been invaluable to our board. She brings fresh perspectives and genuine commitment to reducing mental health stigma.",
