@@ -4,7 +4,7 @@ RUTENDO CHINGAMUKA
 Pharmacy Student | Mental Health Advocate | AMR Enthusiast
 
 CONTACT INFORMATION
-Email: rutendochingamuka4@gmail.com
+Email: michellechingamuka@gmail.com
 Phone: +263 78 000 7325
 LinkedIn: linkedin.com/in/rutendo-chingamuka-583165357
 Location: Harare, Zimbabwe

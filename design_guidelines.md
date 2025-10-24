@@ -97,7 +97,7 @@
 - Large textarea for message (min-h-32)
 - Submit button: Primary teal with hover scale effect
 - Success/error states with appropriate messaging
-- Form connects to EmailJS or similar service sending to rutendochingamuka4@gmail.com
+- Form connects to EmailJS or similar service sending to michellechingamuka@gmail.com
 
 **Social Icons:**
 - Icon size: w-12 h-12

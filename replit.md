@@ -111,7 +111,7 @@ Preferred communication style: Simple, everyday language.
 ### External Dependencies
 
 **Email Service**: Nodemailer with Gmail SMTP
-- Sends contact form submissions to `rutendochingamuka4@gmail.com`
+- Sends contact form submissions to `michellechingamuka@gmail.com`
 - Configured via environment variables (`EMAIL_USER`, `EMAIL_PASSWORD`)
 - HTML-formatted emails with branded styling
 - Graceful degradation: Messages saved to storage even if email delivery fails
