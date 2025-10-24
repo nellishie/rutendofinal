@@ -51,7 +51,7 @@ export const insertGalleryImageSchema = createInsertSchema(galleryImages).omit({
 }).extend({
   title: z.string().min(2, "Title must be at least 2 characters"),
   description: z.string().optional(),
-  imageUrl: z.string().url("Please provide a valid image URL"),
+  imageUrl: z.string().min(1, "Image URL or path is required"),
 });
 
 export type InsertGalleryImage = z.infer<typeof insertGalleryImageSchema>;

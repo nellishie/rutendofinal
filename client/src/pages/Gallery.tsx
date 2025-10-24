@@ -12,7 +12,9 @@ import type { GalleryImage } from "@shared/schema";
 
 export default function Gallery() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [newImage, setNewImage] = useState({ title: "", description: "", imageUrl: "" });
+  const [newImage, setNewImage] = useState({ title: "", description: "" });
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const { toast } = useToast();
 
   const { data: images, isLoading, isError } = useQuery<{ data: GalleryImage[] }>({
@@ -20,8 +22,24 @@ export default function Gallery() {
   });
 
   const addImageMutation = useMutation({
-    mutationFn: async (imageData: typeof newImage) => {
-      return await apiRequest("POST", "/api/gallery", imageData);
+    mutationFn: async (formData: FormData) => {
+      const response = await fetch("/api/gallery", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const error = await response.json();
+          throw new Error(error.message || "Failed to upload image");
+        } else {
+          const textError = await response.text();
+          throw new Error(textError || "Failed to upload image");
+        }
+      }
+      
+      return response.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/gallery"] });
@@ -29,13 +47,15 @@ export default function Gallery() {
         title: "Success!",
         description: "Image added successfully.",
       });
-      setNewImage({ title: "", description: "", imageUrl: "" });
+      setNewImage({ title: "", description: "" });
+      setSelectedFile(null);
+      setPreviewUrl(null);
       setIsAddModalOpen(false);
     },
-    onError: () => {
+    onError: (error: Error) => {
       toast({
         title: "Error",
-        description: "Failed to add image. Please try again.",
+        description: error.message || "Failed to add image. Please try again.",
         variant: "destructive",
       });
     },
@@ -61,16 +81,54 @@ export default function Gallery() {
     },
   });
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        toast({
+          title: "Invalid File",
+          description: "Please select an image file.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      if (file.size > 5 * 1024 * 1024) {
+        toast({
+          title: "File Too Large",
+          description: "Image must be less than 5MB.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setSelectedFile(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleAddImage = () => {
-    if (!newImage.title || !newImage.imageUrl) {
+    if (!newImage.title || !selectedFile) {
       toast({
         title: "Validation Error",
-        description: "Please provide a title and image URL.",
+        description: "Please provide a title and select an image.",
         variant: "destructive",
       });
       return;
     }
-    addImageMutation.mutate(newImage);
+    
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    formData.append('title', newImage.title);
+    if (newImage.description) {
+      formData.append('description', newImage.description);
+    }
+    
+    addImageMutation.mutate(formData);
   };
 
   return (
@@ -220,7 +278,12 @@ export default function Gallery() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
-              onClick={() => setIsAddModalOpen(false)}
+              onClick={() => {
+                setIsAddModalOpen(false);
+                setNewImage({ title: "", description: "" });
+                setSelectedFile(null);
+                setPreviewUrl(null);
+              }}
               data-testid="modal-add-image"
             >
               <motion.div
@@ -235,7 +298,12 @@ export default function Gallery() {
                   <Button
                     size="icon"
                     variant="ghost"
-                    onClick={() => setIsAddModalOpen(false)}
+                    onClick={() => {
+                      setIsAddModalOpen(false);
+                      setNewImage({ title: "", description: "" });
+                      setSelectedFile(null);
+                      setPreviewUrl(null);
+                    }}
                     data-testid="button-close-modal"
                   >
                     <FaTimes className="w-5 h-5" />
@@ -259,16 +327,35 @@ export default function Gallery() {
 
                   <div>
                     <label className="text-sm font-medium mb-2 block">
-                      Image URL *
+                      Image File *
                     </label>
                     <Input
-                      placeholder="https://example.com/image.jpg"
-                      value={newImage.imageUrl}
-                      onChange={(e) =>
-                        setNewImage({ ...newImage, imageUrl: e.target.value })
-                      }
-                      data-testid="input-image-url"
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileChange}
+                      data-testid="input-image-file"
+                      className="cursor-pointer"
                     />
+                    {previewUrl && (
+                      <div className="mt-3 relative">
+                        <img
+                          src={previewUrl}
+                          alt="Preview"
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
+                        <Button
+                          size="sm"
+                          variant="destructive"
+                          className="absolute top-2 right-2"
+                          onClick={() => {
+                            setSelectedFile(null);
+                            setPreviewUrl(null);
+                          }}
+                        >
+                          <FaTimes className="w-3 h-3" />
+                        </Button>
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -289,7 +376,12 @@ export default function Gallery() {
                   <div className="flex gap-3 pt-4">
                     <Button
                       variant="outline"
-                      onClick={() => setIsAddModalOpen(false)}
+                      onClick={() => {
+                        setIsAddModalOpen(false);
+                        setNewImage({ title: "", description: "" });
+                        setSelectedFile(null);
+                        setPreviewUrl(null);
+                      }}
                       className="flex-1"
                       data-testid="button-cancel"
                     >
