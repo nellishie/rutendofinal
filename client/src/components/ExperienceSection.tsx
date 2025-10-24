@@ -45,7 +45,7 @@ const experiences = [
     role: "Strategy Board Director",
     period: "Mar 2025 – Present",
     description:
-      "Directing strategic initiatives to advance mental health awareness, reduce stigma, and improve access to mental health resources. Zimbabwe Coordinator: Stawelyn Musona (+263 78 634 3300) - Regional Relations Members in Association Coordinator.",
+      "Directing strategic initiatives to advance mental health awareness, reduce stigma, and improve access to mental health resources. Zimbabwe Coordinator: Stawelyn Musona (+263 78 634 3300) - Regional Relations Members In Association Coordinator.",
     color: "from-rose-500 to-pink-500",
     borderColor: "border-rose-500",
   },
