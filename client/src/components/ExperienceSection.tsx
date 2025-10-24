@@ -36,7 +36,7 @@ const experiences = [
     role: "Student Intern",
     period: "Jul 2025 – Present",
     description:
-      "Gaining hands-on experience in pharmaceutical care, medication dispensing, and patient counseling in a community pharmacy setting.",
+      "Gaining hands-on experience in pharmaceutical care, medication dispensing, and patient counseling in a community pharmacy setting. Supervisor: Pharmacist Tanatswa (+263 78 206 5768).",
     color: "from-orange-500 to-amber-500",
     borderColor: "border-orange-500",
   },
@@ -45,7 +45,7 @@ const experiences = [
     role: "Strategy Board Director",
     period: "Mar 2025 – Present",
     description:
-      "Directing strategic initiatives to advance mental health awareness, reduce stigma, and improve access to mental health resources.",
+      "Directing strategic initiatives to advance mental health awareness, reduce stigma, and improve access to mental health resources. Zimbabwe Coordinator: Stawelyn Musona (+263 78 634 3300) - Regional Relations Members in Association Coordinator.",
     color: "from-rose-500 to-pink-500",
     borderColor: "border-rose-500",
   },
