@@ -38,20 +38,23 @@ export function ContactSection() {
 
   const sendMessageMutation = useMutation({
     mutationFn: async (data: InsertContactMessage) => {
-      return await apiRequest("POST", "/api/contact", data);
+      const message = `Hi! I'm ${data.name}\n\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+      const whatsappUrl = `https://wa.me/263780007325?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      return { success: true };
     },
     onSuccess: () => {
       setIsSuccess(true);
       form.reset();
       toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Opening WhatsApp...",
+        description: "Please send the pre-filled message to complete your contact request.",
       });
       setTimeout(() => setIsSuccess(false), 5000);
     },
     onError: (error: Error) => {
       toast({
-        title: "Failed to send message",
+        title: "Failed to open WhatsApp",
         description: error.message || "Please try again later.",
         variant: "destructive",
       });
@@ -175,9 +178,9 @@ export function ContactSection() {
                 data-testid="message-success"
               >
                 <FaCheckCircle className="w-16 h-16 text-chart-3 mb-4" />
-                <h4 className="text-xl font-semibold mb-2">Message Sent!</h4>
+                <h4 className="text-xl font-semibold mb-2">WhatsApp Opened!</h4>
                 <p className="text-muted-foreground text-center">
-                  Thank you for reaching out. I'll get back to you soon.
+                  Please send the pre-filled message in WhatsApp to complete your contact request.
                 </p>
               </motion.div>
             ) : (
