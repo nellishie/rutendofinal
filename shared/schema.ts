@@ -36,23 +36,3 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).om
 
 export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
 export type ContactMessage = typeof contactMessages.$inferSelect;
-
-export const galleryImages = pgTable("gallery_images", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  title: text("title").notNull(),
-  description: text("description"),
-  imageUrl: text("image_url").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
-
-export const insertGalleryImageSchema = createInsertSchema(galleryImages).omit({
-  id: true,
-  createdAt: true,
-}).extend({
-  title: z.string().min(2, "Title must be at least 2 characters"),
-  description: z.string().optional(),
-  imageUrl: z.string().min(1, "Image URL or path is required"),
-});
-
-export type InsertGalleryImage = z.infer<typeof insertGalleryImageSchema>;
-export type GalleryImage = typeof galleryImages.$inferSelect;

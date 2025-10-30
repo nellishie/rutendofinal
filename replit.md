@@ -14,11 +14,6 @@ The portfolio follows a modern, clean design approach inspired by professional p
 - ✅ Added Testimonials section with professional recommendations
 - ✅ Enhanced all sections with advanced Framer Motion animations
 - ✅ Improved contact form with graceful email delivery handling
-- ✅ Added Achievement Gallery with masonry layout and admin controls
-- ✅ Implemented gallery button on home page with purple/pink gradient design
-- ✅ Created full CRUD functionality for managing achievement pictures
-- ✅ Converted gallery to device file uploads with image preview and validation (5MB limit, jpg/jpeg/png only)
-- ✅ Added automatic file cleanup when gallery images are deleted
 
 ## User Preferences
 
@@ -51,7 +46,7 @@ Preferred communication style: Simple, everyday language.
 
 **Key Sections**:
 - Navigation: Fixed header with smooth scroll links and theme toggle
-- HeroSection: Profile photo, gradient name, social media buttons, gallery button with purple/pink gradient
+- HeroSection: Profile photo, gradient name, social media buttons
 - AboutSection: Professional summary with downloadable CV button
 - ExperienceSection: 6 experience cards (IPSF, ZPSA, Nexmed, Stillwaters, etc.)
 - EducationSection: University of Zimbabwe BPharm details
@@ -59,7 +54,6 @@ Preferred communication style: Simple, everyday language.
 - BlogSection: 3 blog posts on AMR, mental health, and leadership
 - TestimonialsSection: 3 professional recommendations with star ratings
 - ContactSection: Functional contact form with email integration
-- GalleryPage: Achievement gallery with masonry layout, add/delete controls, and modal for adding images
 
 **State Management**: TanStack Query (React Query) for server state
 - Handles API requests and caching
@@ -76,17 +70,6 @@ Preferred communication style: Simple, everyday language.
 **API Design**: RESTful API endpoints
 - POST `/api/contact` - Handles contact form submissions with graceful email handling
 - GET `/api/download-cv` - Generates and downloads CV as text file
-- GET `/api/gallery` - Fetches all gallery images
-- POST `/api/gallery` - Creates a new gallery image via file upload (multipart/form-data with title, image file, optional description)
-- DELETE `/api/gallery/:id` - Deletes a gallery image by ID and removes the physical file from storage
-
-**File Upload System**: Multer middleware for handling image uploads
-- Stores files in `public/uploads/gallery/` directory
-- File naming: `{timestamp}-{randomstring}.{ext}` for uniqueness
-- Validation: 5MB size limit, only jpg/jpeg/png formats accepted
-- Error handling: Custom middleware returns JSON responses for validation failures
-- Static serving: Files served at `/uploads/gallery/` URL path
-- Cleanup: Physical files deleted from filesystem when gallery images are removed
 
 **Development Server**: Vite middleware integration for hot module replacement during development
 
@@ -103,7 +86,7 @@ Preferred communication style: Simple, everyday language.
 
 **Database ORM**: Drizzle ORM configured for PostgreSQL
 - Schema defined in `shared/schema.ts`
-- Tables: `users`, `contact_messages`, and `gallery_images`
+- Tables: `users`, `contact_messages`
 
 **Database Provider**: Neon Database (serverless PostgreSQL)
 - Connection via `@neondatabase/serverless` driver
@@ -116,7 +99,6 @@ Preferred communication style: Simple, everyday language.
 **Schema Structure**:
 - `users` table: id, username, password
 - `contact_messages` table: id, name, email, message, createdAt
-- `gallery_images` table: id, title, imageUrl, description, createdAt
 
 ### External Dependencies
 

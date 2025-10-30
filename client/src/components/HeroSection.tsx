@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Mail } from "lucide-react";
 import { SiWhatsapp, SiLinkedin } from "react-icons/si";
-import { FaImages } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 import profileImage from "@assets/WhatsApp Image 2025-10-21 at 17.20.26_6418fda9_1761222541311.jpg";
 
 export function HeroSection() {
@@ -127,19 +125,6 @@ export function HeroSection() {
                   <link.icon className="w-6 h-6" />
                 </motion.a>
               ))}
-              
-              <Link href="/gallery">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className="bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 cursor-pointer"
-                  data-testid="button-gallery"
-                  aria-label="Gallery"
-                >
-                  <FaImages className="w-6 h-6" />
-                </motion.div>
-              </Link>
             </motion.div>
 
             <motion.div
